@@ -3,8 +3,7 @@
     <!-- Sub-menu for Location Hierarchy -->
     <menuitem id="menu_location_hierarchy"
               name="Location Hierarchy"
-              parent="menu_sendea_main"
-              />
+              parent="menu_sendea_main"/>
 
     <!-- Region Menu -->
     <menuitem id="menu_region"

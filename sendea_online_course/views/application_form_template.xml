@@ -99,13 +99,15 @@
                                         </select>
 
                                         <label for="village_label">Village </label>
-                                        <select id="village" name="village" class="form-control">
+                                        <input type="text" id="village_label" name="village_label" class="form-control" required="required"/>
+
+                                        <!-- <select id="village" name="village" class="form-control">
                                             <option value="">Select a village</option>
                                             <t t-foreach="village" t-as="villages">
                                                 <option t-att-value="villages.id" t-att-data-parish="villages.parish_id.id">
                                                 <t t-esc="villages.name"/></option>
                                             </t>
-                                        </select>                                  
+                                        </select>                                   -->
                                     
                                     
                                     </div>
@@ -510,125 +512,7 @@
                                 });
                             </script>
 
-
-                            <!-- <script>
-                                document.addEventListener("DOMContentLoaded", function() {
-                                    // Event listener for region change
-                                    document.getElementById("region").addEventListener("change", function() {
-                                        const regionId = this.value;
-                                        fetchDistricts(regionId);
-                                    });
-
-                                    // Event listener for district change
-                                    document.getElementById("district").addEventListener("change", function() {
-                                        const districtId = this.value;
-                                        fetchSubCounties(districtId);
-                                    });
-
-                                    // Event listener for sub-county change
-                                    document.getElementById("sub_county").addEventListener("change", function() {
-                                        const subCountyId = this.value;
-                                        fetchParishes(subCountyId);
-                                    });
-
-                                    // Fetch districts based on the selected region
-                                    async function fetchDistricts(regionId) {
-                                        try {
-                                            const response = await fetch('/get_districts', {
-                                                method: 'POST',
-                                                headers: { 'Content-Type': 'application/json' },
-                                                body: JSON.stringify({ region_id: regionId })
-                                            });
-
-                                            // Parse the JSON response
-                                            const jsonResponse = await response.json();
-
-                                            // Check if the result is an array and update options
-                                            if (jsonResponse.result && Array.isArray(jsonResponse.result)) {
-                                                console.log("Districts:", jsonResponse.result); // Log the response
-                                                updateOptions('district', jsonResponse.result);
-                                            } else {
-                                                console.error("Expected an array but got:", jsonResponse);
-                                            }
-                                        } catch (error) {
-                                            console.error("Error fetching districts:", error);
-                                        }
-                                    }
-
-                                    // Fetch sub-counties based on the selected district
-                                    async function fetchSubCounties(districtId) {
-                                        try {
-                                            const response = await fetch('/get_subcounties', {
-                                                method: 'POST',
-                                                headers: { 'Content-Type': 'application/json' },
-                                                body: JSON.stringify({ district_id: districtId })
-                                            });
-
-                                            const jsonResponse = await response.json();
-
-                                            if (jsonResponse.result && Array.isArray(jsonResponse.result)) {
-                                                console.log("Sub-counties:", jsonResponse.result); // Log the response
-                                                updateOptions('sub_county', jsonResponse.result);
-                                            } else {
-                                                console.error("Expected an array but got:", jsonResponse);
-                                            }
-                                        } catch (error) {
-                                            console.error("Error fetching sub-counties:", error);
-                                        }
-                                    }
-
-                                    // Fetch parishes based on the selected sub-county
-                                    async function fetchParishes(subCountyId) {
-                                        try {
-                                            const response = await fetch('/get_parishes', {
-                                                method: 'POST',
-                                                headers: { 'Content-Type': 'application/json' },
-                                                body: JSON.stringify({ subcounty_id: subCountyId })
-                                            });
-
-                                            const jsonResponse = await response.json();
-
-                                            if (jsonResponse.result && Array.isArray(jsonResponse.result)) {
-                                                console.log("Parishes:", jsonResponse.result); // Log the response
-                                                updateOptions('parish', jsonResponse.result);
-                                            } else {
-                                                console.error("Expected an array but got:", jsonResponse);
-                                            }
-                                        } catch (error) {
-                                            console.error("Error fetching parishes:", error);
-                                        }
-                                    }
-
-                                    // Function to update the dropdown options
-                                    function updateOptions(elementId, options) {
-                                        const select = document.getElementById(elementId);
-                                        select.innerHTML = ''; // Clear previous options
-                                        const defaultOption = document.createElement('option');
-                                        defaultOption.value = '';
-                                        defaultOption.text = 'Select';
-                                        select.appendChild(defaultOption);
-
-                                        if (Array.isArray(options)) { // Check if options is an array
-                                            options.forEach(option => {
-                                                const opt = document.createElement('option');
-                                                opt.value = option.id;
-                                                opt.text = option.name;
-                                                select.appendChild(opt);
-                                            });
-                                        } else {
-                                            console.error("Expected an array but got:", options);
-                                        }
-                                    }
-                                });
-                            </script> -->
-
-
-
-
-
-
-
-                              
+                                     
                         </form>
                     </div>
                 </div>            
