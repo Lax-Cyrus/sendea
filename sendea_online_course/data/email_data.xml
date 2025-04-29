@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <!-- Application Approved Email Template -->
+        <record id="online_course_application_approved_email" model="mail.template">
+            <field name="name">Sendea: Application Approved</field>
+            <field name="model_id" ref="sendea_online_course.model_sendea_application"/>
+            <field name="email_from">{{object.user_id.company_id.email}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="subject">Sendea: {{object.name}} Application Approved</field>
+            <field name="body_html" type="html">
+                <div style="margin:0px;padding:0px;">
+                    <p style="margin:0px;padding:0px;font-size:14px;">
+                        Hello <t t-out="object.name"/>,
+                        <br/>
+                        <br/>
+                        We are delighted to inform you that your application for membership at Sendea was approved. 
+                        <br/><br/>
+                        
+                        Feel free to explore the various benefits and resources available to you as a member of Sendea.
+                        <br/><br/>
+                        If you have any questions or need assistance, please don't hesitate to reach out to the Sendea Training Department.
+                        <br/><br/>
+                        Welcome aboard!
+                        <br/><br/>
+                        Best regards,
+                        <br/>Sendea Training Department
+                        <br/>
+                        <strong>
+                            <t t-out="object.user_id.company_id.name"/>
+                        </strong>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        
+
+    </data>
+</odoo>

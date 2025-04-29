@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sendea_region,sendea.region,model_sendea_region,,1,1,1,1
+access_sendea_district,sendea.district,model_sendea_district,,1,1,1,1
+access_sendea_subcounty,sendea.subcounty,model_sendea_subcounty,,1,1,1,1
+access_sendea_parish,sendea.parish,model_sendea_parish,,1,1,1,1
+access_sendea_village,sendea.village,model_sendea_village,,1,1,1,1
+access_sendea_application,sendea.application,model_sendea_application,,1,1,1,1
+sendea_online_course.access_institute_record,access_institute_record,sendea_online_course.model_institute_record,base.group_user,1,1,1,1
+sendea_online_course.access_employment_record,access_employment_record,sendea_online_course.model_employment_record,base.group_user,1,1,1,1

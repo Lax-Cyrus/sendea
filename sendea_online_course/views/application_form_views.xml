@@ -1,0 +1,433 @@
+<odoo>
+    <!-- Region Form and Tree Views -->
+    <record id="view_region_form" model="ir.ui.view">
+        <field name="name">sendea.region.form</field>
+        <field name="model">sendea.region</field>
+        <field name="arch" type="xml">
+            <form string="Region">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="district_ids" widget="one2many_list" options="{'no_create': True}">
+                            <tree string="Districts">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_region_tree" model="ir.ui.view">
+        <field name="name">sendea.region.tree</field>
+        <field name="model">sendea.region</field>
+        <field name="arch" type="xml">
+            <tree string="Regions">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    
+
+    <record id="action_view_regions" model="ir.actions.act_window">
+        <field name="name">Regions</field>
+        <field name="res_model">sendea.region</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- District Form and Tree Views -->
+    <record id="view_district_form" model="ir.ui.view">
+        <field name="name">sendea.district.form</field>
+        <field name="model">sendea.district</field>
+        <field name="arch" type="xml">
+            <form string="District">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="region_id"/>
+                        <field name="sub_county_ids" widget="one2many_list" options="{'no_create': True}">
+                            <tree string="Sub Counties">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_district_tree" model="ir.ui.view">
+        <field name="name">sendea.district.tree</field>
+        <field name="model">sendea.district</field>
+        <field name="arch" type="xml">
+            <tree string="Districts">
+                <field name="name"/>
+                <field name="region_id"/>
+            </tree>
+        </field>
+    </record>
+
+    
+
+    <record id="action_view_district" model="ir.actions.act_window">
+        <field name="name">Districts</field>
+        <field name="res_model">sendea.district</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sub County Form and Tree Views -->
+    <record id="view_subcounty_form" model="ir.ui.view">
+        <field name="name">sendea.subcounty.form</field>
+        <field name="model">sendea.subcounty</field>
+        <field name="arch" type="xml">
+            <form string="Subcounty">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="district_id"/>
+                        <field name="parish_ids" widget="one2many_list" options="{'no_create': True}">
+                            <tree string="Parishes">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_subcounty_tree" model="ir.ui.view">
+        <field name="name">sendea.subcounty.tree</field>
+        <field name="model">sendea.subcounty</field>
+        <field name="arch" type="xml">
+            <tree string="Subcounties">
+                <field name="name"/>
+                <field name="district_id"/>
+            </tree>
+        </field>
+    </record>
+
+    
+
+    <record id="action_view_subcounty" model="ir.actions.act_window">
+        <field name="name">Sub-counties</field>
+        <field name="res_model">sendea.subcounty</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Parish Form and Tree Views -->
+    <record id="view_parish_form" model="ir.ui.view">
+        <field name="name">sendea.parish.form</field>
+        <field name="model">sendea.parish</field>
+        <field name="arch" type="xml">
+            <form string="Parishes">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sub_county_id"/>
+                        <field name="village_ids" widget="one2many_list" options="{'no_create': True}">
+                            <tree string="Villages">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_parish_tree" model="ir.ui.view">
+        <field name="name">sendea.parish.tree</field>
+        <field name="model">sendea.parish</field>
+        <field name="arch" type="xml">
+            <tree string="Parishes">
+                <field name="name"/>
+                <field name="sub_county_id"/>
+            </tree>
+        </field>
+    </record>
+
+   
+
+    <record id="action_view_parish" model="ir.actions.act_window">
+        <field name="name">Parishes</field>
+        <field name="res_model">sendea.parish</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Village Form and Tree Views -->
+    <record id="view_village_form" model="ir.ui.view">
+        <field name="name">sendea.village.form</field>
+        <field name="model">sendea.village</field>
+        <field name="arch" type="xml">
+            <form string="Villages">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="parish_id"/>                         
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_village_tree" model="ir.ui.view">
+        <field name="name">sendea.village.tree</field>
+        <field name="model">sendea.village</field>
+        <field name="arch" type="xml">
+            <tree string="Villages">
+                <field name="name"/>
+                <field name="parish_id"/> 
+            </tree>
+        </field>
+    </record>
+
+    
+    <record id="action_view_village" model="ir.actions.act_window">
+        <field name="name">Villages</field>
+        <field name="res_model">sendea.village</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Application Form Tree and Form Views -->
+    <record id="view_application_form" model="ir.ui.view">
+        <field name="name">application.form.view</field>
+        <field name="model">sendea.application</field>
+        <field name="arch" type="xml">
+            <form string="Online Course Application">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_application_tree" model="ir.ui.view">
+        <field name="name">application.tree.view</field>
+        <field name="model">sendea.application</field>
+        <field name="arch" type="xml">
+            <tree string="Applications">
+                <field name="name"/>
+                <field name="email"/>                
+            </tree>
+        </field>
+    </record>
+     
+    <!-- Kanban View for Application -->
+    <record id="view_application_kanban" model="ir.ui.view">
+    <field name="name">sendea.application.kanban</field>
+    <field name="model">sendea.application</field>
+    <field name="arch" type="xml">
+        <kanban string="Applications">           
+            <field name="name"/>
+            <field name="email"/>            
+            <field name="state"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                        <field name="image_1920" widget="image" class="oe_left oe_avatar"/>
+                    
+                    </div>                   
+                    
+                    <div class="flex-column">
+                        <ul>
+                                    <li>
+                                        <b>Name:</b>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <b>Email:</b>
+                                        <field name="email"/>
+                                    </li>
+                                    <li>
+                                        <b>Contact:</b>
+                                        <field name="contact_number"/>
+                                    </li>
+                                    <li>
+                                        <b>NIN:</b>
+                                        <field name="nin_number"/>
+                                    </li> 
+
+                                    <li>
+                                        <b>State:</b>
+                                        <field name="state"/>
+                                    </li>                                
+                                    
+                                    
+                                    
+                                    
+                        </ul>
+                    
+                    </div>
+                                        
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+    
+    <record id="view_application_form" model="ir.ui.view">
+        <field name="name">sendea.application.form</field>
+        <field name="model">sendea.application</field>
+        <field name="arch" type="xml">
+            <form string="Application Form">
+                 <header>
+                    <!-- <button name="action_register" type="object" string="Register" 
+                        class="btn-primary"/> -->
+                    <button name="action_register" type="object" string="Approve"/>
+
+                    <button name="send_email_wizard" type="object" string="Send Email"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,registered"/>                
+                   
+
+                </header>
+                <sheet>                    
+                    <group>
+                        <field name="image_1920" widget="image" class="oe_left oe_avatar"/>
+                        <group>                           
+                            <field name="name"/>
+                            <field name="nin_number"/>
+                            <field name="date_birth"/>
+                            <field name="gender"/>
+                            <field name="nationality"/>
+                        </group>
+                        <group>
+                            <field name="contact_number"/>
+                            <field name="email"/>                                               
+                        </group>
+                        
+                        <notebook position="inside">
+                            <page string="Present Address" name="present_address">
+                                <group>
+                                    <group>
+                                        <field name="region"/>
+                                        <field name="district" domain="[('region_id', '=', region)]"/>
+                                        <field name="sub_county" domain="[('district_id', '=', district)]"/>                                                                             
+                                    </group>
+                                    <group>                                        
+                                        <field name="parish" domain="[('sub_county_id', '=', sub_county)]"/>
+                                        <field name="village" domain="[('parish_id', '=', parish)]"/>                                    
+                                    </group>                                
+                                </group>                            
+                            </page>
+
+                            <page string="Next of Kin Data" name="next_kin_data_1">
+                                <group>
+                                    <group>
+                                        <field name="name_next_kin"/>
+                                        <field name="address_next_kin"/>                                                                             
+                                    </group>
+                                    <group>
+                                        <field name="email_next_kin"/>
+                                        <field name="tel_next_kin"/>                                    
+                                    </group>                                
+                                </group>                            
+                            </page>
+                            <page string="Reason for Applying" name="reason_for_applying">
+                                <group>
+                                    <group>
+                                        <field name="reason_interested_area"/>
+                                        <field name="expectation_interested_area"/>
+                                        <field name="number_installations"/>
+                                    </group>
+                                    <group>                                                                               
+                                        <field name="place_installation"/>
+                                        <field name="type_installations"/>
+                                        <field name="level_knowledge"/>                                    
+                                    </group>                                
+                                </group>                            
+                            </page>
+
+                            <page string="Institutional / Vocational Education Background" name="institutional_eduction_background">
+                                <group>
+                                    <field name="institute_ids" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="name" string="Institute"/>
+                                            <field name="year_training" string="Year"/>
+                                            <field name="qualification" string="Qualification"/>
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="name" string="Institute"/>
+                                                <field name="year_training" string="Year"/>
+                                                <field name="qualification" string="Qualification"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page string="Employment Record" name="employment_record">
+                                <group>
+                                    <field name="employment_ids" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="employer_name" string="Name of Employer"/>
+                                            <field name="starting_year" string="Starting Year"/>
+                                            <field name="ending_year" string="Ending Year"/>
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="employer_name" string="Name of Employer"/>
+                                                <field name="starting_year" string="Starting Year"/>
+                                                <field name="ending_year" string="Ending Year"/>
+                                            </group>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page string="Other information" name="other_records">
+                                <group>
+                                    <group>
+                                        <field name="amount_earned"/>
+                                        <field name="earning_types"/>
+                                        <field name="declaration"/>
+                                                                           
+                                    </group>
+                                    <group>                                                                               
+                                        <field name="recommendation_attachment"/>                                      
+                                                                            
+                                    </group>                                   
+                                                                   
+                                </group>                            
+                            </page>
+
+                        </notebook>
+                    </group>                    
+                </sheet>      
+                             
+                
+            </form>
+        </field>
+    </record>
+
+    <!-- Adding the Views to the Action -->
+    <record id="action_view_application" model="ir.actions.act_window">
+        <field name="name">Applications</field>
+        <field name="res_model">sendea.application</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="menu_sendea_main"
+              name="Online Course Application"
+              sequence="2"
+              />
+
+    <menuitem id="menu_applications"
+              name="Applications"
+              parent="menu_sendea_main"
+              action="action_view_application"
+              />
+
+    
+</odoo>
