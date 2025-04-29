@@ -1,44 +1,44 @@
 <odoo>
    
     <!-- Sub-menu for Location Hierarchy -->
-    <menuitem id="menu_location_hierarchy"
+    <!-- <menuitem id="menu_location_hierarchy"
               name="Location Hierarchy"
-              parent="menu_sendea_main"/>
+              parent="menu_sendea_main"/> -->
 
     <!-- Region Menu -->
-    <menuitem id="menu_region"
+    <!-- <menuitem id="menu_region"
               name="Regions"
               parent="menu_location_hierarchy"
               action="action_view_regions"
-              />
+              /> -->
 
     <!-- District Menu -->
-    <menuitem id="menu_district"
+    <!-- <menuitem id="menu_district"
               name="Districts"
               parent="menu_location_hierarchy"
               action="action_view_district"
-              />
+              /> -->
 
     <!-- Subcounty Menu -->
-    <menuitem id="menu_subcounty"
+    <!-- <menuitem id="menu_subcounty"
               name="Subcounties"
               parent="menu_location_hierarchy"
               action="action_view_subcounty"
-              />
+              /> -->
 
     <!-- Parish Menu -->
-    <menuitem id="menu_parish"
+    <!-- <menuitem id="menu_parish"
               name="Parishes"
               parent="menu_location_hierarchy"
               action="action_view_parish"
-              />
+              /> -->
 
     <!-- Village Menu -->
-    <menuitem id="menu_village"
+    <!-- <menuitem id="menu_village"
               name="Villages"
               parent="menu_location_hierarchy"
               action="action_view_village"
-              />
+              /> -->
 
    
 </odoo>
